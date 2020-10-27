@@ -5,16 +5,16 @@ package com.luguoyipaishu.domain;
  * @date 2020/10/25 18:22
  */
 public class User {
-    private String name;
+    private String username;
     private int age;
     private String password;
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getAge() {

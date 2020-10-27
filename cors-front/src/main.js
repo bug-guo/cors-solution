@@ -7,6 +7,7 @@ import axios from 'axios'
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
@@ -20,6 +21,7 @@ new Vue({
 })
 
 axios.defaults.baseURL = 'http://127.0.0.1:8080'
+axios.defaults.withCredentials = true
 axios.interceptors.request.use(config => {
   config.headers.Authorization = window.sessionStorage.getItem('token')
   return config
