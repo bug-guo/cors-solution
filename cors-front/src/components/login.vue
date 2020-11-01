@@ -23,6 +23,12 @@
         <el-col :span="4">
           <el-button type="primary" @click="submit(1)">CorsOrigin登录</el-button>
         </el-col>
+        <el-col :span="4">
+          <el-button type="primary" @click="submit(2)">基于过滤器登录</el-button>
+        </el-col>
+        <el-col :span="4">
+          <el-button type="primary" @click="submit(3)">基于拦截器登录</el-button>
+        </el-col>
       </el-row>
 
     </el-main>
@@ -49,13 +55,13 @@
         if (type === null) {
         } else if (type === 1) {
           url += '/cors'
-        } else if (type === 1) {
-          url += '/filter'
         } else if (type === 2) {
+          url += '/filter'
+        } else if (type === 3) {
           url += '/webfilter'
         }
         url += '/login'
-        Axios.post(url, this.user).then(function (res) {
+        this.$http.post(url, this.user).then(function (res) {
           console.log(res.data)
           that.$router.push({path: 'LoginSuccess', params: {tips: res.data}})
         }).catch(function (error) {
