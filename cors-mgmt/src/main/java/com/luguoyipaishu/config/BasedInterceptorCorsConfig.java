@@ -12,16 +12,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author 路过一排树
  * @date 2020/10/29 22:26
  */
-//@EnableWebMvc
-//@Configuration
-//@ComponentScan(basePackages = {
-//        "com.luguoyipaishu.controller",
-//        "com.luguoyipaishu.service"})
+@Configuration
+@EnableWebMvc
+@ComponentScan(basePackages = {
+        "com.luguoyipaishu.controller",
+        "com.luguoyipaishu.service"})
 public class BasedInterceptorCorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/*")
-                .allowedOrigins("*")
+        registry.addMapping("/**")
+//                .allowedOrigins("*")
+                .allowedOrigins("http://localhost:8080")
                 .allowedMethods("PUT", "DELETE","OPTIONS","POST","GET")
                 .allowedHeaders("Content-Type", "Content-Length,Authorization, Accept, X-Requested-With,X-App-Id,  X-Token")
                 .allowCredentials(true).maxAge(3600);

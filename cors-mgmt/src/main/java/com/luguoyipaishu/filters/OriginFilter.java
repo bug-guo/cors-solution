@@ -16,7 +16,7 @@ import java.util.Set;
  * @author 路过一排树
  * @date 2020/10/29 22:07
  */
-@WebFilter(urlPatterns = "/*")
+//@WebFilter(urlPatterns = "/*")
 public class OriginFilter implements Filter {
 
     //这里面 填写不需要 被拦截的地址
@@ -30,7 +30,8 @@ public class OriginFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         //解决跨域的问题
-        response.setHeader("Access-Control-Allow-Origin", "*");  //可以根据不同环境进行适配
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin"));  //可以根据不同环境进行适配
+//        response.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");  //可以根据不同环境进行适配
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With,X-App-Id, X-Token");
         response.setHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");

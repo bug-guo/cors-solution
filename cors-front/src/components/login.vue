@@ -51,7 +51,7 @@
     methods: {
       submit (type) {
         let that = this
-        let url = 'http://www.cas.com:8000'
+        let url = ''
         if (type === null) {
         } else if (type === 1) {
           url += '/cors'

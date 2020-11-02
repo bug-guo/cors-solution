@@ -23,10 +23,10 @@ new Vue({
 axios.defaults.baseURL = 'http://127.0.0.1:8000'
 axios.defaults.withCredentials = true
 // axios.defaults.headers.common['Access-Control-Allow-Origin'] = 'true'
-axios.interceptors.request.use(config => {
-  // config.headers['Access-Control-Allow-Origin'] = true
-  // config.headers['Content-Type'] = 'application/json;charset=utf-8'
-  config.headers.Authorization = window.sessionStorage.getItem('token')
-  return config
-})
+// axios.interceptors.request.use(config => {
+//   // config.headers['Access-Control-Allow-Origin'] = true
+//   // config.headers['Content-Type'] = 'application/json;charset=utf-8'
+//   config.headers.Authorization = window.sessionStorage.getItem('token')
+//   return config
+// })
 Vue.prototype.$http = axios
