@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-tag v-model="tips"></el-tag>
+    {{tips}}
 
   </el-container>
 </template>
@@ -10,8 +10,9 @@
   export default {
     name: 'HelloWorld',
     created () {
-      console.log(this.$router.params)
-      this.tips = this.$router.params.tips
+      // console.log(this.$route.query)
+      this.tips = this.$route.query.tips
+      console.log(this.tips)
     },
     data () {
       return {

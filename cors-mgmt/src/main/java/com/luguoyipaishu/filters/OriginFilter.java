@@ -16,7 +16,7 @@ import java.util.Set;
  * @author 路过一排树
  * @date 2020/10/29 22:07
  */
-//@WebFilter(urlPatterns = "/*")
+@WebFilter(urlPatterns = "/*")
 public class OriginFilter implements Filter {
 
     //这里面 填写不需要 被拦截的地址

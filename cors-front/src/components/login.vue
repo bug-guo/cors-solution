@@ -63,7 +63,7 @@
         url += '/login'
         this.$http.post(url, this.user).then(function (res) {
           console.log(res.data)
-          that.$router.push({path: 'LoginSuccess', params: {tips: res.data}})
+          that.$router.push({path: 'LoginSuccess', query: {tips: res.data}})
         }).catch(function (error) {
           console.log(error)
         })
