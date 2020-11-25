@@ -5,10 +5,6 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 采用过滤器的方式实现跨域请求
@@ -29,6 +25,11 @@ public class OriginFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
+        String requestURI = request.getRequestURI();
+        if (!requestURI.equals("/filter/login")) {
+            chain.doFilter(request, response);
+            return;
+        }
         //解决跨域的问题
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("origin"));  //可以根据不同环境进行适配
 //        response.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");  //可以根据不同环境进行适配
@@ -51,8 +52,8 @@ public class OriginFilter implements Filter {
 //                response.getWriter().write("noLogin");
 //            }
 //        } else {  //不需要被拦截的方法
-            //直接放行
-            chain.doFilter(request, response);
+        //直接放行
+        chain.doFilter(request, response);
 //        }
     }
 }

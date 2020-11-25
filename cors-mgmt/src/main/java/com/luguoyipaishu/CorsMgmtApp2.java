@@ -1,6 +1,7 @@
 package com.luguoyipaishu;
 
 import com.luguoyipaishu.config.BasedInterceptorCorsConfig;
+import com.luguoyipaishu.config.CorsConfig;
 import com.luguoyipaishu.config.CorsMgmtConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,10 +17,10 @@ import org.springframework.test.context.ContextConfiguration;
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @ServletComponentScan(basePackages = {"com.luguoyipaishu.filters"})
-@ContextConfiguration(classes = CorsMgmtConfig.class)
-@ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = BasedInterceptorCorsConfig.class)})
-public class CorsMgmtApp {
+@ContextConfiguration(classes = CorsConfig.class)
+@ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,classes = BasedInterceptorCorsConfig.class)})
+public class CorsMgmtApp2 {
     public static void main(String[] args) {
-        SpringApplication.run(CorsMgmtApp.class, args);
+        SpringApplication.run(CorsMgmtApp2.class, args);
     }
 }
